@@ -4,4 +4,5 @@ src/config.php
 *.lock
 proxies/
 .vagrant/
+.idea/
 mysql_db

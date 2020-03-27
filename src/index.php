@@ -42,16 +42,12 @@ foreach($templates as $index=>$template)
    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!--Github Fork Badge -->
-<div class="github-fork-ribbon-wrapper hidden-xs">
-  <div class="github-fork-ribbon">
-    <a target="_blank" href="https://github.com/Toxantron/scrumonline">Fork me on GitHub</a>
-  </div>
-</div>
+
 
 <!-- Top navigation bar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid navigation">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -67,6 +63,8 @@ foreach($templates as $index=>$template)
         <li data-toggle="collapse" data-target=".navbar-collapse.in"><a href="<?php echo $navItem->link ?>"><?php echo $navItem->navigationTag ?></a></li>
       <?php endforeach; ?>
       </ul>
+
+
     </div> <!--/.nav-collapse -->
   </div>
 </nav>
