@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scrumpoker
+  labels:
+    app: scrumpoker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scrumpoker
+  template:
+    metadata:
+      labels:
+        app: scrumpoker
+    spec:
+      initContainers:
+        - name: scrumpoker-init
+          image: alpine:3.7
+          command: ["/bin/sh","-c"]
+          args: ['apk add --no-cache git && git clone https://github.com/cankesen/scrumonline.git && cd scrumonline && git checkout prodyna && ls && cp -r * /var/www/scrumonline']
+          volumeMounts:
+            - mountPath: /var/www/scrumonline
+              name: scrum
+      containers:
+        - name: scrumpoker
+          image: "scrum-lamp:latest"
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /var/www/scrumonline
+              name: scrum
+      volumes:
+        - name: scrum
+          emptyDir: {}
